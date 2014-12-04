@@ -1,7 +1,7 @@
 apply plugin:'java'
 apply plugin: 'maven'
 defaultTasks 'build'
-version='1.10.1'
+version='1.10.2'
 description='Java implementation of the ISO 8583 protocol, focused on making the creation, edition and reading of ISO8583 messages as simple and flexible as possible.'
 sourceCompatibility=6
 targetCompatibility=6
@@ -17,9 +17,9 @@ configurations {
 }
 
 dependencies {
-	compile 'org.slf4j:slf4j-api:1.7.6'
+	compile 'org.slf4j:slf4j-api:1.7.7'
 	testCompile 'junit:junit:4.11'
-	testRuntime 'org.slf4j:slf4j-simple:1.7.6'
+	testRuntime 'org.slf4j:slf4j-simple:1.7.7'
 }
 
 tasks.javadoc.options.use=true
@@ -34,7 +34,7 @@ task sourcesJar(type:Jar) {
 	classifier='sources'
 }
 
-tasks.withType(Compile) { Compile compile ->
+tasks.withType(AbstractCompile) { AbstractCompile compile ->
 	compile.options.debug = true
 	compile.options.compilerArgs = ['-Xlint:all']
 }
